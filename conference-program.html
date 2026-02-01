@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="clearfix" id="logo"><img class="img-responsive" src="media/banner_2024.jpg" /></div>
+					<div class="clearfix" id="logo"><img class="img-responsive" id="banner-img" src=""/></div>
 				</div>
 			</div>
 		</div>
@@ -54,27 +54,30 @@
 				<div id="content">
 					<h1>Conference Program</h1>
 
-					<p><strong><strong>ICAAM 2024&nbsp;</strong></strong></p>
+					<p><strong><strong>ICAAM 2026&nbsp;</strong></strong></p>
 
-					<p><strong><strong>SEVENTH INTERNATIONAL CONFERENCE ON ANALYSIS AND APPLIED
+					<p><strong><strong>EIGTH INTERNATIONAL CONFERENCE ON ANALYSIS AND APPLIED
 								MATHEMATICS</strong></strong></p>
 
-					<p><strong><a href="media/documents/abstractbook.pdf"><span
+					<!-- <p><strong><a href="media/documents/abstractbook.pdf"><span
 									style="background-color:#ecf0f1;">ABSTRACT BOOK </span></a><span
 								style="background-color:#ecf0f1;"> &nbsp;</span></strong><strong><strong><span
 									style="background-color:yellow;">(LAST UPDATED: September 21, 2024).
-								</span></strong></strong></p>
+								</span></strong></strong></p> -->
 
 					<p></p>
 
-					<p><strong><strong><span style="background-color:LightSalmon;">PLEASE CHECK FOR
+					<!-- <p><strong><strong><span style="background-color:LightSalmon;">PLEASE CHECK FOR
 									CHANGES:&nbsp;</span></strong></strong><a
 							href="https://docs.google.com/spreadsheets/d/10aeLNLDDFj7OrBq0vLixO6K8Khx8AO4G/edit?usp=sharing&amp;ouid=103097341411045697263&amp;rtpof=true&amp;sd=true"><strong><strong><span
-										style="background-color:LightSalmon;">PROGRAM LINK</span></strong></strong></a>
+										style="background-color:LightSalmon;">PROGRAM LINK</span></strong></strong></a> -->
+
+					<p>TBA</p>
+
 					</p>
 
-					<iframe height="1400" width="700"
-						src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQiChov5hGOY0p8I12Zjvb1ggGPDAFtCPft9r0Obkh_9mNzQXkoR3csCYSapnO6_Q/pubhtml?widget=true&amp;headers=false"></iframe>
+					<!-- <iframe height="1400" width="700"
+						src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQiChov5hGOY0p8I12Zjvb1ggGPDAFtCPft9r0Obkh_9mNzQXkoR3csCYSapnO6_Q/pubhtml?widget=true&amp;headers=false"></iframe> -->
 
 					<p></p>
 				</div>
@@ -92,7 +95,6 @@
 						<li id="tree-menu-social-activities.html"><a href="social-activities.html">Social activities</a></li>
 						<li id="tree-menu-sponsors.html"><a href="sponsors.html">Sponsors</a></li>
 						<li id="tree-menu-contact.html"><a href="contact.html">Contact</a></li>
-						<li id="tree-menu-aip-paper-status.html"><a href="aip-paper-status.html">AIP Paper Status</a></li>
 						<li>-------------------------------------------------</li>
 						<li>Registration Open</li>
 						<li><u><a href="registration.html">REGISTER NOW</a></u></li>
@@ -105,6 +107,17 @@
 	<grammarly-desktop-integration
 		data-grammarly-shadow-root="true"></grammarly-desktop-integration><grammarly-desktop-integration
 		data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+	<script>
+		fetch("status.json")
+		.then(response => response.json())
+		.then(data => {
+			document.getElementById("banner-img").src = data.banner;
+		})
+		.catch(error => {
+			console.error("Error loading status.json:", error);
+		});
+	</script>
 </body>
 
 </html>

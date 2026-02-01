@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="clearfix" id="logo"><img class="img-responsive" src="media/banner_2024.jpg" /></div>
+					<div class="clearfix" id="logo"><img class="img-responsive" id="banner-img" src=""/></div>
 				</div>
 			</div>
 		</div>
@@ -63,38 +63,27 @@
 									<p><strong><strong>Deadline for abstract submission</strong></strong></p>
 								</td>
 								<td>
-									<p><strong>&nbsp;<a href="media/documents/abstractbook.pdf">ABSTRACT BOOK&nbsp;</a></strong></p>
+									<p id="abstract-submission"></p>
 								</td>
 							</tr>
 							<tr>
 								<td><strong>Hotel registration</strong></td>
-								<td><span style="background-color:#ffffcc;">Pre-reservations are open until June 15,
-										2024</span></td>
-							</tr>
-							<tr>
-								<td>
-									<p><strong><strong>Deadline for AIP Paper (extended abstract)
-												submission</strong></strong></p>
-								</td>
-								<td>
-									<p>&nbsp;November 1, 2024</p>
-								</td>
+								<td><p id="reg-hotel"></p></td>
 							</tr>
 							<tr>
 								<td>
 									<p><strong><strong>Notifications on acceptance of talks and
 												posters</strong></strong></p>
 								</td>
-								<td>&nbsp;August 15, 2024</td>
+								<td><p id="acceptance-notification"></p></td>
 							</tr>
 							<tr>
 								<td>
 									<p><strong><strong>Program schedule</strong></strong></p>
 								</td>
 								<td>
-									<p>Draft - August 30, 2024</p>
-
-									<p>Final - September 15, 2024</p>
+									<p id="program-draft"></p>
+									<p id="program-final"></p>
 								</td>
 							</tr>
 						</tbody>
@@ -116,10 +105,9 @@
 						<li id="tree-menu-social-activities.html"><a href="social-activities.html">Social activities</a></li>
 						<li id="tree-menu-sponsors.html"><a href="sponsors.html">Sponsors</a></li>
 						<li id="tree-menu-contact.html"><a href="contact.html">Contact</a></li>
-						<li id="tree-menu-aip-paper-status.html"><a href="aip-paper-status.html">AIP Paper Status</a></li>
 						<li>-------------------------------------------------</li>
-						<li>Registration Open</li>
-						<li><u><a href="registration.html">REGISTER NOW</a></u></li>
+						<li id="reg-status"></li>
+						<li id="reg-link"></li>
 					</ul>
 				</div>
 			</div>
@@ -127,6 +115,35 @@
 	</div>
 
 	<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+	<script>
+		fetch("status.json")
+		.then(response => response.json())
+		.then(data => {
+			document.getElementById("banner-img").src = data.banner;
+
+			// status text
+			document.getElementById("reg-status").textContent =
+			"Registration " + data.registration_status.toUpperCase();
+
+			// show link only if open
+			if (data.registration_status === "open") {
+				document.getElementById("reg-link").innerHTML =
+				'<u><a href="registration.html">REGISTER NOW</a></u>';
+			} else {
+				linkElement.remove();
+			}
+
+			document.getElementById("abstract-submission").textContent = data.dates.abstract_submission;
+			document.getElementById("reg-hotel").textContent = data.dates.hotel_registration;
+			document.getElementById("acceptance-notification").textContent = data.dates.acceptance_notification;
+			document.getElementById("program-draft").textContent = "DRAFT: " + data.dates.program_draft;
+			document.getElementById("program-final").textContent = "FINAL: " + data.dates.program_final;
+		})
+		.catch(error => {
+			console.error("Error loading status.json:", error);
+		});
+	</script>
 </body>
 
 </html>

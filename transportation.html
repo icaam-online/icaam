@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="clearfix" id="logo"><img class="img-responsive" src="media/banner_2024.jpg" /></div>
+					<div class="clearfix" id="logo"><img class="img-responsive" id="banner-img" src=""/></div>
 				</div>
 			</div>
 		</div>
@@ -54,9 +54,9 @@
 				<div id="content">
 					<h1>Transportation</h1>
 
-					<h3 data-sourcepos="1:1-1:22"><strong>Traveling to the Hotel in Kiris, T&uuml;rkiye</strong></h3>
+					<h3 data-sourcepos="1:1-1:22"><strong>Traveling to the Hotel in Antalya, T&uuml;rkiye</strong></h3>
 
-					<p data-sourcepos="3:1-3:73">There are several ways to travel to the hotel located in Kiris,
+					<p data-sourcepos="3:1-3:73">There are several ways to travel to the hotel located in Antalya,
 						T&uuml;rkiye:</p>
 
 					<ol data-sourcepos="5:1-5:13">
@@ -86,23 +86,6 @@
 						</li>
 					</ul>
 
-					<ol data-sourcepos="15:1-16:0" start="2">
-						<li data-sourcepos="15:1-16:0">Transportation from Antalya Airport to Kiris:</li>
-					</ol>
-
-					<p data-sourcepos="17:1-17:108">Once you arrive at Antalya Airport (AYT), you have these
-						transportation options to reach the hotel in Kirs:</p>
-
-					<ul data-sourcepos="19:1-21:5">
-						<li data-sourcepos="19:1-19:170"><strong>Hotel&#39;s Round-trip Airport Transfer:</strong> The
-							hotel offers convenient round-trip transportation for &euro;130 total for 1-2 people and
-							&euro;40 per person for groups of 3 or more.</li>
-						<li data-sourcepos="20:1-20:113"><strong>Taxi:</strong> Taxis are readily available at the
-							airport. The journey takes about 1 hour 20 minutes (67 km).</li>
-						<li data-sourcepos="21:1-21:5"><strong>Car Rental:</strong> You can consider renting a car at
-							the airport.</li>
-					</ul>
-
 					<p></p>
 				</div>
 			</div>
@@ -119,7 +102,6 @@
 						<li id="tree-menu-social-activities.html"><a href="social-activities.html">Social activities</a></li>
 						<li id="tree-menu-sponsors.html"><a href="sponsors.html">Sponsors</a></li>
 						<li id="tree-menu-contact.html"><a href="contact.html">Contact</a></li>
-						<li id="tree-menu-aip-paper-status.html"><a href="aip-paper-status.html">AIP Paper Status</a></li>
 						<li>-------------------------------------------------</li>
 						<li>Registration Open</li>
 						<li><u><a href="registration.html">REGISTER NOW</a></u></li>
@@ -130,6 +112,17 @@
 	</div>
 
 	<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+	<script>
+		fetch("status.json")
+		.then(response => response.json())
+		.then(data => {
+			document.getElementById("banner-img").src = data.banner;
+		})
+		.catch(error => {
+			console.error("Error loading status.json:", error);
+		});
+	</script>
 </body>
 
 </html>

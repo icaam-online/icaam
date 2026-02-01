@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="clearfix" id="logo"><img class="img-responsive" src="media/banner_2024.jpg" /></div>
+					<div class="clearfix" id="logo"><img class="img-responsive" id="banner-img" src=""/></div>
 				</div>
 			</div>
 		</div>
@@ -59,6 +59,7 @@
 					<p><strong><a href="http://icaam-online.org/archive/2018/index.html/">ICAAM 2018&nbsp;-&nbsp;Near East University, North Cyprus, Turkey</a></strong></p>
 					<p><strong><a href="http://icaam-online.org/archive/2020/index.html">ICAAM 2020 - Near East University, North Cyprus, Turkey</a></strong></p>
 					<p><strong><a href="http://icaam-online.org/archive/2022/index.html">ICAAM 2022 - Bahcesehir University, Antalya, Turkey</a></strong></p>
+					<p><strong><a href="./archive/2024/index.html">ICAAM 2024 - Bahcesehir University, Antalya, Turkey</a></strong></p>
 				</div>
 			</div>
 
@@ -74,7 +75,6 @@
 						<li id="tree-menu-social-activities.html"><a href="social-activities.html">Social activities</a></li>
 						<li id="tree-menu-sponsors.html"><a href="sponsors.html">Sponsors</a></li>
 						<li id="tree-menu-contact.html"><a href="contact.html">Contact</a></li>
-						<li id="tree-menu-aip-paper-status.html"><a href="aip-paper-status.html">AIP Paper Status</a></li>
 						<li>-------------------------------------------------</li>
 						<li>Registration Open</li>
 						<li><u><a href="registration.html">REGISTER NOW</a></u></li>
@@ -84,6 +84,17 @@
 		</div>
 	</div>
 	<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+	<script>
+		fetch("status.json")
+		.then(response => response.json())
+		.then(data => {
+			document.getElementById("banner-img").src = data.banner;
+		})
+		.catch(error => {
+			console.error("Error loading status.json:", error);
+		});
+	</script>
 </body>
 
 </html>
