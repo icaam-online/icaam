@@ -2,11 +2,11 @@
 <html lang="">
 
 <head>
-	<meta charset="utf-8">
+	<meta charset="euc-tw">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="keywords" content="">
 	<meta name="description" content="">
-	<title>Contact | ICAAM</title>
+	<title>Participants | ICAAM</title>
 	<link href="site_media/static/img/favicon.ico" rel="shortcut icon" />
 	<link href="site_media/static/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="site_media/static/css/mezzanine.css" rel="stylesheet" />
@@ -15,7 +15,7 @@
 	<script src="site_media/static/js/bootstrap-extras.js"></script>
 </head>
 
-<body data-gr-ext-installed="" data-new-gr-c-s-check-loaded="14.1080.0" id="body">
+<body data-gr-ext-installed="" data-new-gr-c-s-check-loaded="14.1179.0" id="body">
 	<header>
 		<div class="container">
 			<div class="row">
@@ -39,7 +39,7 @@
 					<li id="committees.html"><a href="committees.html">Committees </a></li>
 					<li id="call-for-papers.html"><a href="call-for-papers.html">Call for papers </a></li>
 					<li id="important-dates.html"><a href="important-dates.html">Important dates </a></li>
-					<li id="participants"><a href="participants.html">Participants </a></li>
+					<li class="active" id="participants"><a href="participants.html">Participants </a></li>
 					<li id="accommodation.html"><a href="accommodation.html">Accommodation and Registration Fees </a></li>
 				</ul>
 			</div>
@@ -52,15 +52,25 @@
 		<div class="row">
 			<div class="col-md-9 left">
 				<div id="content">
-					<h1>Contact</h1>
+					<h1>Participants</h1>
 
-					<p>For your questions and queries, please contact to:</p>
+					<p><strong>List of Registered Participants:</strong></p>
 
-					<p><b>ICAAM Technical Committee</b></p>
+					<table class="table table-striped table-bordered uppercase">
+						<tbody>
+							<tr>
+								<th></th>
+								<th>Name</th>
+								<th>Affiliation</th>
+							</tr>
+						</tbody>
+					</table>
 
-					<p><strong>E-mail:</strong>&nbsp;<b>icaammail@gmail.com</b></p>
+					<p>(*): If an explanation is incorrect, please contact us</p>
 
-					<p></p>
+					<ul class="pagination">
+					</ul>
+
 				</div>
 			</div>
 
@@ -75,7 +85,7 @@
 						<li id="tree-menu-transportation.html"><a href="transportation.html">Transportation</a></li>
 						<li id="tree-menu-social-activities.html"><a href="social-activities.html">Social activities</a></li>
 						<li id="tree-menu-sponsors.html"><a href="sponsors.html">Sponsors</a></li>
-						<li class="active active-branch" id="tree-menu-contact.html"><a href="contact.html">Contact</a></li>
+						<li id="tree-menu-contact.html"><a href="contact.html">Contact</a></li>
 						<li id="tree-menu-aip-paper-status.html"><a href="aip-paper-status.html">AIP Paper Status</a></li>
 						<li>-------------------------------------------------</li>
 						<li>Registration Open</li>
@@ -85,8 +95,94 @@
 			</div>
 		</div>
 	</div>
-
 	<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+	<script>
+		const pageSize = 50;  // how many participants per page
+		let currentPage = 1;
+		let participants = [];
+
+		// load participant JSON
+		fetch("media/data/participants.json")
+		.then(res => res.json())
+		.then(data => {
+			participants = data;
+			renderPage(1);
+		});
+
+		// Render the current page
+		function renderPage(page) {
+		currentPage = page;
+
+		const start = (page - 1) * pageSize;
+		const end = start + pageSize;
+
+		const chunk = participants.slice(start, end);
+
+		renderTable(chunk);
+		renderPagination();
+		}
+
+		// draw the table rows
+		function renderTable(chunk) {
+		const tbody = document.querySelector("table tbody");
+
+		// keep header row
+		tbody.innerHTML = `
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Affiliation</th>
+			</tr>
+		`;
+
+		chunk.forEach(p => {
+			tbody.innerHTML += `
+			<tr>
+				<td>${p.id}</td>
+				<td>${p.name}</td>
+				<td>${p.affiliation}</td>
+			</tr>
+			`;
+		});
+		}
+
+		// draw pagination buttons
+		function renderPagination() {
+		const totalPages = Math.ceil(participants.length / pageSize);
+		const pag = document.querySelector(".pagination");
+
+		pag.innerHTML = "";
+
+		// page info
+		pag.innerHTML += `
+			<li class="page-info"><span>Page ${currentPage} of ${totalPages}</span></li>
+		`;
+
+		// previous button
+		pag.innerHTML += `
+			<li class="prev ${currentPage === 1 ? 'disabled' : ''}">
+			<a onclick="${currentPage > 1 ? `renderPage(${currentPage - 1})` : ''}">&larr;</a>
+			</li>
+		`;
+
+		// page numbers
+		for (let i = 1; i <= totalPages; i++) {
+			pag.innerHTML += `
+			<li class="${i === currentPage ? 'active' : ''}">
+				<a onclick="renderPage(${i})">${i}</a>
+			</li>
+			`;
+		}
+
+		// next button
+		pag.innerHTML += `
+			<li class="next ${currentPage === totalPages ? 'disabled' : ''}">
+			<a onclick="${currentPage < totalPages ? `renderPage(${currentPage + 1})` : ''}">&rarr;</a>
+			</li>
+		`;
+		}
+	</script>
+
 </body>
 
 </html>
