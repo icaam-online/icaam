@@ -54,10 +54,10 @@
 				<div id="content">
 					<h1>Registration and Short Abstract Submission</h1>
 
-					<p>Registration and abstract submission are via <a href="https://forms.gle/narb4gkZ2eY1wdmv9">GOOGLE
+					<p>Registration and abstract submission are via <a id="reg-link-1">GOOGLE
 							FORMS</a>.</p>
 
-					<p>Go to&nbsp;<a href="https://forms.gle/narb4gkZ2eY1wdmv9">GOOGLE FORMS</a>&nbsp;to register and
+					<p>Go to&nbsp;<a id="reg-link-2">GOOGLE FORMS</a>&nbsp;to register and
 						submit your short abstract.</p>
 
 					<p>Please <strong>upload a single ZIP file </strong>that includes the source file (<em><strong>TeX
@@ -120,6 +120,8 @@
 		.then(response => response.json())
 		.then(data => {
 			document.getElementById("banner-img").src = data.banner;
+			document.getElementById("reg-link-1").href = data.registration_link;
+			document.getElementById("reg-link-2").href = data.registration_link;
 		})
 		.catch(error => {
 			console.error("Error loading status.json:", error);
