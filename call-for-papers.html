@@ -76,7 +76,7 @@
 									<div align="left">The procedure for the submission of an abstract paper is via
 										Google Forms.</div>
 
-									<div align="left">Go to <a href="https://forms.gle/narb4gkZ2eY1wdmv9">GOOGLE
+									<div align="left">Go to <a id="reg-link-2">GOOGLE
 											FORMS</a>&nbsp;and submit your short abstract.</div>
 
 									<div align="left">Please upload the source file (<em><strong>TeX
@@ -93,8 +93,8 @@
 								<div>
 									<div align="left">
 										<p class="style7">Sample Abstract File: <a
-												href="media/documents/template.pdf">template.pdf</a> <a
-												href="media/documents/template.tex">template.tex</a>
+												href="media/documents/Example_ICAAM2026.pdf">template.pdf</a> <a
+												href="media/documents/Example_ICAAM2026.zip">template.zip</a>
 										</p>
 
 										<p class="style7"><a href="minisymposiums.html"><strong><span
@@ -239,6 +239,7 @@
 		.then(response => response.json())
 		.then(data => {
 			document.getElementById("banner-img").src = data.banner;
+			document.getElementById("reg-link-2").href = data.registration_link;
 		})
 		.catch(error => {
 			console.error("Error loading status.json:", error);
