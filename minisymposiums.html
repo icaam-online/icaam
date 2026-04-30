@@ -56,7 +56,7 @@
 
 					<p>The procedure for submitting an abstract paper for minisymposiums is via Google Forms.</p>
 
-					<p>Go to <a href="https://forms.gle/narb4gkZ2eY1wdmv9">GOOGLE FORMS</a>&nbsp;and submit your short
+					<p>Go to <a id="reg-link-2">GOOGLE FORMS</a>&nbsp;and submit your short
 						abstract.</p>
 
 					<p>Please upload the source file (<em><strong>TeX file)&nbsp;</strong></em>and PDF file as a single
@@ -193,6 +193,7 @@
 		.then(response => response.json())
 		.then(data => {
 			document.getElementById("banner-img").src = data.banner;
+			document.getElementById("reg-link-2").href = data.registration_link;
 		})
 		.catch(error => {
 			console.error("Error loading status.json:", error);
