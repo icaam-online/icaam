@@ -13,6 +13,7 @@
 	<script src="site_media/static/mezzanine/js/jquery-1.7.2.min.js"></script>
 	<script src="site_media/static/js/bootstrap.js"></script>
 	<script src="site_media/static/js/bootstrap-extras.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 </head>
 
 <body data-gr-ext-installed="" data-new-gr-c-s-check-loaded="14.1179.0" id="body">
@@ -96,89 +97,100 @@
 	</div>
 	<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
 	<script>
-		const pageSize = 50;  // how many participants per page
+		const pageSize = 50;
 		let currentPage = 1;
 		let participants = [];
 
-		// load participant JSON
-		fetch("media/data/participants.json")
-		.then(res => res.json())
-		.then(data => {
-			participants = data;
-			renderPage(1);
-		});
+		const excelUrl = "https://docs.google.com/spreadsheets/d/1tVRaOwikeF8Hx5QqzxhSH1FARr-WAeoQxbgfTOO1gIY/export?format=csv";
 
-		// Render the current page
+		fetch(excelUrl)
+			.then(res => res.arrayBuffer())
+			.then(buffer => {
+				const workbook = XLSX.read(buffer, { type: "array" });
+				const sheetName = workbook.SheetNames[0];
+				const sheet = workbook.Sheets[sheetName];
+
+				const rows = XLSX.utils.sheet_to_json(sheet, {
+					defval: ""
+				});
+
+				participants = rows.map((row, index) => ({
+					id: index + 1,
+					name: row["List all authors (Write First and Last Name)"],
+					affiliation: row["Affiliation of Authors"]
+				}));
+
+				renderPage(1);
+			})
+			.catch(error => {
+				console.error("Error loading Excel:", error);
+			});
+
 		function renderPage(page) {
-		currentPage = page;
+			currentPage = page;
 
-		const start = (page - 1) * pageSize;
-		const end = start + pageSize;
+			const start = (page - 1) * pageSize;
+			const end = start + pageSize;
 
-		const chunk = participants.slice(start, end);
+			const chunk = participants.slice(start, end);
 
-		renderTable(chunk);
-		renderPagination();
+			renderTable(chunk);
+			renderPagination();
 		}
 
-		// draw the table rows
 		function renderTable(chunk) {
-		const tbody = document.querySelector("table tbody");
+			const tbody = document.querySelector("table tbody");
 
-		// keep header row
-		tbody.innerHTML = `
-			<tr>
-				<th></th>
-				<th>Name</th>
-				<th>Affiliation</th>
-			</tr>
-		`;
-
-		chunk.forEach(p => {
-			tbody.innerHTML += `
-			<tr>
-				<td>${p.id}</td>
-				<td>${p.name}</td>
-				<td>${p.affiliation}</td>
-			</tr>
+			tbody.innerHTML = `
+				<tr>
+					<th></th>
+					<th>Name</th>
+					<th>Affiliation</th>
+				</tr>
 			`;
-		});
+
+			chunk.forEach(p => {
+				tbody.innerHTML += `
+					<tr>
+						<td>${p.id}</td>
+						<td>${p.name}</td>
+						<td>${p.affiliation}</td>
+					</tr>
+				`;
+			});
 		}
 
-		// draw pagination buttons
 		function renderPagination() {
-		const totalPages = Math.ceil(participants.length / pageSize);
-		const pag = document.querySelector(".pagination");
+			const totalPages = Math.ceil(participants.length / pageSize);
+			const pag = document.querySelector(".pagination");
 
-		pag.innerHTML = "";
+			pag.innerHTML = "";
 
-		// page info
-		pag.innerHTML += `
-			<li class="page-info"><span>Page ${currentPage} of ${totalPages}</span></li>
-		`;
-
-		// previous button
-		pag.innerHTML += `
-			<li class="prev ${currentPage === 1 ? 'disabled' : ''}">
-			<a onclick="${currentPage > 1 ? `renderPage(${currentPage - 1})` : ''}">&larr;</a>
-			</li>
-		`;
-
-		// page numbers
-		for (let i = 1; i <= totalPages; i++) {
 			pag.innerHTML += `
-			<li class="${i === currentPage ? 'active' : ''}">
-				<a onclick="renderPage(${i})">${i}</a>
-			</li>
+				<li class="page-info">
+					<span>Page ${currentPage} of ${totalPages}</span>
+				</li>
 			`;
-		}
 
-		// next button
-		pag.innerHTML += `
-			<li class="next ${currentPage === totalPages ? 'disabled' : ''}">
-			<a onclick="${currentPage < totalPages ? `renderPage(${currentPage + 1})` : ''}">&rarr;</a>
-			</li>
-		`;
+			pag.innerHTML += `
+				<li class="prev ${currentPage === 1 ? 'disabled' : ''}">
+					<a onclick="${currentPage > 1 ? `renderPage(${currentPage - 1})` : ''}">&larr;</a>
+				</li>
+			`;
+
+			for (let i = 1; i <= totalPages; i++) {
+				pag.innerHTML += `
+					<li class="${i === currentPage ? 'active' : ''}">
+						<a onclick="renderPage(${i})">${i}</a>
+					</li>
+				`;
+			}
+
+			pag.innerHTML += `
+				<li class="next ${currentPage === totalPages ? 'disabled' : ''}">
+					<a onclick="${currentPage < totalPages ? `renderPage(${currentPage + 1})` : ''}">&rarr;</a>
+				</li>
+			`;
 		}
 	</script>
 
