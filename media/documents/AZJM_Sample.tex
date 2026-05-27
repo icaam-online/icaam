@@ -1,0 +1,172 @@
+\documentclass{azjmPRE}
+
+%%%%% author macros %%%%%%%%%
+% place your own macros and packages HERE
+% DON'T ADD \usepackage{natbib, graphicx, cite, amsfonts, amssymb, amsbsy, amsmath, amsthm}
+%%%%% end %%%%%%%%%
+
+
+\begin{document}
+
+\title[Running title...]{Sample \LaTeX\ Style Guide for Azerbaijan Journal of Mathematics}
+
+
+% Please mark \corrauth after the name of the corresponding author.
+\author[B.T. Bilalov, A.A. Tagiyeva]{ B.T. Bilalov, A.A. Tagiyeva}
+
+
+\begin{abstract}
+This document provides details regarding formatting \LaTeX\ articles forAzerbaijan Journal of  Mathematics. The AZJM style is created from modifications of the standard latex "article" style. While we at AZJM encourage and prefer submitted articles to be compiled from latex, we have attempted to give enough information so authors could nearly correctly format articles written in Microsoft Word. Only documents sourced in \LaTeX\ or Microsoft Word will be accepted. Please contact production editor A. Tagiyeva with any questions about this document, or formatting articles for AZJM.
+\end{abstract}
+
+\keywords{Keyword 1, Keyword 2, Keyword 3, Keyword 4, ...}
+\ams{AMS classification codes}
+
+\maketitle
+
+\section{Front Matter}
+
+
+
+An abstract of no more than $200$ words, using the \textbf{abstract} environment is required, as are at least $3$ keywords in \verb \keywords{}. \\ AMS classification numbers should be specified using \verb \ams{}. The abstract, keywords, and \\ AMS classsifications should be set apart with horizontal rules 15cm long.\\
+
+The email addresses are listed at 4cm from the bottom, and the corresponding author is footnote is at 5cm from the bottom, under a 2cm horizontal rule. 2.5cm from the top should be the journal name in all caps and bold font, with "PRE-PUBLICATION SUBMISSION DOCUMENT" on the next line. The following line should be blank, with "ISSN 2218-6816 - www.AZJM.org" on the next line. The footer is 2.5cm from the bottom of the page, with http://www.AZJM.org left-justified, "\copyright\ \textit{thisyear} AZJM All rights reserved" right-justified, and the page number centered with the text.
+
+\section{Primary Document}
+\subsection{General}
+The article should be formatted for A4-sized paper, using a basic 11-point Roman font, with lines single-spaced. The left margin is approximately 2.5cm, and the right margin is 4cm.  The top margin is 3.5cm, with a header at 2.7cm; the bottom margin is 4.5cm. Except for the title page, each page header should list the running author followed by " / AZ. J. Math, \textit{beginpage}-\textit{endpage}", with the current page number right justified.\\
+
+% Sections should be numbered using Arabic numerals, and the headings should be typed with initial letters for important words capitalized. In this sample, we use the \textbf{bold} typefont to indicate latex environments that should be opened with \verb \begin \ and closed with \verb \end. Appendices should be at the end of the paper (after the bibliography) in an unnumbered section (use \verb \section*{ }  ). Any acknowledgements should be placed after the conclusion but before the bibliography. They should be entered as a new paragraph starting with "ACKNOWLEDGEMENTS" in a bold typeface; for example, use \verb \paragraph{{\bf} ACKNOWLEDGEMENTS} .\\
+
+For lists, use either the \textbf{enumerate} environment:
+\begin{enumerate}
+\item these
+\item are
+\item enumerated
+\end{enumerate}
+or the \textbf{itemize} environment:
+\begin{itemize}
+\item these
+\item are
+\item itemized
+\end{itemize}
+If you wish to number / mark items differently, use \verb \item[(i)] \ (or whatever). Also, if you instead want lists with less white space, use the paralist package (\verb \usepackage{paralist} ) and replace the environments with \textbf{compactenum} or \textbf{compactitem}
+
+\subsection{Equations}
+Inline math should be used sparingly, with equations longer than half a line being used as display equations. Doing otherwise may force the editorial staff to break the equations to fit in the margins. Display equations should be numbered on the far right, using arabic numbers that increment throughout the entire paper - not by section. For regular single-line display equations, use the \textbf{equation} or \textbf{equation*} (no number) environments:
+\begin{equation}
+\underset{np\times1}{\underbrace{Y_{vec}}}=\underset{np\times p\left(pk+1\right) }{%
+\underbrace{X_{\sup }}}\underset{p\left( pk+1\right)\times1}{\underbrace{\beta}}%
++\underset{np\times1}{\underbrace{\varepsilon}}\text{.}  \label{eqn_newmodel}
+\end{equation}
+For multi-line equations that you want lined up, use the \textbf{eqnarray} or \textbf{eqnarray*} environments:
+\begin{eqnarray}
+C_{1}(\mathcal{\hat{F}}^{-1}) &=&\{\frac{m}{2}\log \left( \frac{%
+tr[\left( X_{\sup }^{\prime }\hat{\Omega}^{-1}X_{\sup }\right) ^{-1}]%
++\frac{1}{2n}G}{m}\right)\ldots\nonumber\\
+&&-\frac{1}{2}\log\vert\left( X_{\sup }^{\prime }\hat{\Omega}%
+^{-1}X_{\sup }\right)^{-1}\vert -\frac{p}{2}\log \left( 2\right) +%
+\frac{p\left( p+1\right) \log n}{4}\ldots  \nonumber \\
+&&-\frac{\left( p+1\right) }{2}\log\vert \hat{\Sigma}_{FGLS}^\ast\vert \}.\label{eqn_C1_finv}
+\end{eqnarray}
+For multi-line equations that you want centered together, use the \textbf{gather} or \textbf{gather*} environments:
+\begin{gather}
+AIC=np\log\left(2\pi\right)+n\log\vert\hat{\Sigma}\vert+np+2m\text{, where}\label{eqn_AIC}\\
+m=\left(p\left(k+1\right)+\frac{p\left(p+1\right)}{2}\right)\text{.}\label{eqn_numparms}
+\end{gather}
+For all equations that will be referenced in text, it is preferred that \verb \label{} \ be used in the equation, and \verb \ref{} \ be used in the text.
+
+\subsection{Theorem Environments}
+Theorems, definitions, lemmas, corollaries, remarks, and examples should all be placed in the specified environments. Like sections and equations, numbering for each should proceed through the entire document using Arabic numerals. Use of \verb \label{} \ and \verb \ref{} \ for referencing is preferred (also for floats). Here we have examples:
+\begin{definition}
+This is a \textbf{definition}.
+\end{definition}
+\begin{lemma}
+This is a \textbf{lemma}.
+\end{lemma}
+\begin{theorem}
+This is a \textbf{theorem}.
+\end{theorem}
+\begin{corollary}
+This is a \textbf{corollary}.
+\end{corollary}
+\begin{remark}
+This is a \textbf{remark}.
+\end{remark}
+\begin{example}
+This is an \textbf{example}.
+\end{example}
+Theorems which you want to prove should be accompanied with an instance of the \textbf{proof} environment:
+\begin{proof}
+This is a \textbf{proof}
+\end{proof}
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \blacktriangleleft$ 
+\subsection{Floats - Tables and Figures}
+Floating objects - tables and figures should be centered horizontally and placed near but after their first reference in the text. An exception is if a float is placed on the top of the same page. Figures and tables should also be numbered sequentially through the document using Arabic numerals. Figures should have a short caption underneath, and tables should have a short caption above. Examples are in Table \ref{tab_simmses} and Figure \ref{fig_simvarex}.
+\begin{table}[htbp]
+\caption{\label{tab_simmses}A Caption with Initial Caps.}
+\centering
+\fbox{%
+\begin{tabular}{c|cc|cc}
+& \multicolumn{2}{c|}{$X_{1}$} & \multicolumn{2}{c}{$X_{2}$} \\
+Step & $MSE_{SUB,i}$ & $MSE_{SAT,i}$ & $MSE_{SUB,i}$ & $MSE_{SAT,i}$\\ \hline
+$10$ & $0.0652$* & $0.0675$ & $0.0325$* & $0.0337$ \\
+$20$ & $0.0687$* & $0.0701$ & $0.0321$* & $0.0330$ \\
+$50$ & $0.0674$* & $0.0696$ & $0.0334$* & $0.0346$ \\
+$70$ & $0.0711$* & $0.0729$ & $0.0339$* & $0.0349$ \\
+$80$ & $0.0645$* & $0.0669$ & $0.0315$* & $0.0327$ \\
+$90$ & $0.0652$* & $0.0670$ & $0.0319$* & $0.0329$ \\
+$100$ & $0.0684$* & $0.0699$ & $0.0333$* & $0.0340$
+\end{tabular}}
+\end{table}
+\begin{figure}[htbp]
+\centering
+%\makebox{\includegraphics[height=1.75in]{simvar_example}}
+\caption{\label{fig_simvarex}A Caption with Initial Caps.}
+\end{figure}
+
+
+\section{References}
+The bibliography should be titled "References", with the section heading centered horizontally. It is preferred that bibliographic references be compiled with bibtex, using the "natbib" package with the "plain" style. Inline citations should be numeric references of the form [\#]; they can be done with \verb \cite{}, \verb \citep{}, etc\ldots. Regarding formatting the bibliographic entries, the primary requirement is that they be in alphabetic order by the first author's surname. In the following sample bibliography, we have:
+\begin{itemize}
+\item \cite{EngleGranger1987, WestLinster2003} are journal articles
+\item this is a book: \citep{Holland1975}                       
+\end{itemize}
+
+\begin{thebibliography}{99}
+\bibitem{1} Bennett,  C.,  Sharpley, R. (1988) \textit{Interpolation of Operators}, Academic Press.
+
+\bibitem{2}  Bilalov, B.T.,   Sadigova S.R. (2021)  \textit{Interior Schauder-type estimates for higher-order elliptic operators in grand-Sobolev spaces},  Sahand Communications in Mathematical Analysis, \textbf{18(2)},  129-148.
+
+\bibitem{3}  Bilalov, B.T.,   Ahmadov, T.M.,   Zeren, Y.,  Sadigova, S.R. (2022)   \textit{Solution in the small and interior Schauder type Estimate for the m-th order Elliptic operator in Morrey- Sobolev spaces}, Azerb. Jour. Math., \textbf{12(2)}, 190-219.
+
+
+
+
+\end{thebibliography}
+
+
+\begin{footnotesize}
+\begin{flushleft}
+Bilal T. Bilalov\\
+\textit{Institute of Mathematics, The Ministry of Science and Education,  Az1141, Baku, Azerbaijan}\\
+\textit{E-mail:} bilalov.bilal@gmail.com\\
+\end{flushleft}
+\end{footnotesize}
+
+\begin{footnotesize}
+\begin{flushleft}
+Aida A. Tagiyeva\\
+\textit{Institute of Mathematics, The Ministry of Science and Education, Az1141, Baku, Azerbaijan}\\
+\textit{E-mail:} aida-tagiyeva@rambler.ru\\
+\end{flushleft}
+\end{footnotesize}
+
+
+Received ........
+ 
+Accepted ........
+
+\end{document}

@@ -13,6 +13,7 @@
 	<script src="site_media/static/mezzanine/js/jquery-1.7.2.min.js"></script>
 	<script src="site_media/static/js/bootstrap.js"></script>
 	<script src="site_media/static/js/bootstrap-extras.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 </head>
 
 <body data-gr-ext-installed="" data-new-gr-c-s-check-loaded="14.1200.0" id="body">
@@ -63,7 +64,9 @@
 						</tbody>
 					</table>
 
-					<p></p>
+					<ol id="keynotes-list"></ol>
+
+					<ul class="pagination"></ul>
 				</div>
 			</div>
 
@@ -92,6 +95,61 @@
 		data-grammarly-shadow-root="true"></grammarly-desktop-integration><grammarly-extension-vbars class="dnXmp"
 		data-grammarly-shadow-root="true"></grammarly-extension-vbars><grammarly-extension-vbars-feedback-form
 		class="dnXmp" data-grammarly-shadow-root="true"></grammarly-extension-vbars-feedback-form>
+	
+	<script>
+		let keynotes = [];
+
+		fetch("status.json?v=" + Date.now())
+			.then(response => response.json())
+			.then(data => {
+				const csvUrl = data.keynotes;
+
+				if (!csvUrl) {
+					throw new Error("status.json does not contain 'keynotes'");
+				}
+
+				return fetch(csvUrl);
+			})
+			.then(res => res.text())
+			.then(csvText => {
+				const workbook = XLSX.read(csvText, { type: "string" });
+				const sheetName = workbook.SheetNames[0];
+				const sheet = workbook.Sheets[sheetName];
+
+				const rows = XLSX.utils.sheet_to_json(sheet, {
+					header: 1,
+					defval: ""
+				});
+
+				keynotes = rows.slice(1).map((row, index) => ({
+					id: index + 1,
+					name: row[0],
+					affiliation: row[1],
+					title: row[2]
+				}));
+
+				renderList(keynotes);
+			})
+			.catch(error => {
+				console.error("Error loading CSV:", error);
+  			});
+
+		function renderList() {
+			const list = document.querySelector("#keynotes-list");
+
+			list.innerHTML = "";
+
+			keynotes.forEach(p => {
+				list.innerHTML += `
+				<li>
+					<strong>${p.name}</strong> <br>
+					<i>${p.affiliation}</i> <br>
+					Title: ${p.title}
+				</li>
+				`;
+			});
+		}
+	</script>
 
 	<script>
 		fetch("status.json")

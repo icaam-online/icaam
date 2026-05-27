@@ -9,5 +9,7 @@
     "program_final": "September 14, 2026"
   },
   "abstract-last-update": "September 21, 2026",
-  "banner": "media/banner_2026.png"
+  "banner": "media/banner_2026.png",
+  "participants_url": "https://docs.google.com/spreadsheets/d/1tVRaOwikeF8Hx5QqzxhSH1FARr-WAeoQxbgfTOO1gIY/export?format=csv",
+  "keynotes": "https://docs.google.com/spreadsheets/d/1f9hNYfyGtESaQgHth9rd3TLmimTnmOZKgE-3moG8bks/export?format=csv"
 }

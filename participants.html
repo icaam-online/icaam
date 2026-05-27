@@ -100,10 +100,18 @@
 		const pageSize = 50;
 		let currentPage = 1;
 		let participants = [];
+		
+		fetch("status.json?v=" + Date.now())
+			.then(response => response.json())
+			.then(data => {
+				const csvUrl = data.participants_url;
 
-		const excelUrl = "https://docs.google.com/spreadsheets/d/1tVRaOwikeF8Hx5QqzxhSH1FARr-WAeoQxbgfTOO1gIY/export?format=csv";
+				if (!csvUrl) {
+					throw new Error("status.json does not contain 'participants_url'");
+				}
 
-		fetch(excelUrl)
+				return fetch(csvUrl);
+			})
 			.then(res => res.arrayBuffer())
 			.then(buffer => {
 				const workbook = XLSX.read(buffer, { type: "array" });
