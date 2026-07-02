@@ -1,0 +1,59 @@
+name: Update participants
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-participants:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download and convert Google Sheet to JSON
+        run: |
+          python3 - <<'PY'
+          import csv
+          import json
+          import os
+          import urllib.request
+
+          csv_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSLjXbr6Gu6GeVM_DirRjUUKijqxw1j9Cv-HM32z0Vvsxr_cYOlpGd6XLdKs00Kg9viOxGxu3PudvCo/pub?gid=0&single=true&output=csv"
+
+          output_path = "media/data/participants.json"
+
+          os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+          with urllib.request.urlopen(csv_url) as response:
+              content = response.read().decode("utf-8-sig").splitlines()
+
+          reader = csv.DictReader(content)
+
+          participants = []
+
+          for index, row in enumerate(reader, start=1):
+              participants.append({
+                  "id": index,
+                  "name": row.get("List of Authors", "").strip(),
+                  "affiliation": row.get("Affiliation of Authors", "").strip()
+              })
+
+          with open(output_path, "w", encoding="utf-8") as f:
+              json.dump(participants, f, ensure_ascii=False, indent=2)
+
+          print(f"Wrote {len(participants)} participants to {output_path}")
+          PY
+
+      - name: Commit updated participants
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add media/data/participants.json
+          git diff --cached --quiet || git commit -m "Update participants"
+          git push

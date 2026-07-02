@@ -100,38 +100,21 @@
 		const pageSize = 50;
 		let currentPage = 1;
 		let participants = [];
-		
-		fetch("status.json?v=" + Date.now())
-			.then(response => response.json())
-			.then(data => {
-				const csvUrl = data.participants_url;
 
-				if (!csvUrl) {
-					throw new Error("status.json does not contain 'participants_url'");
+		fetch("media/data/participants.json?v=" + Date.now())
+			.then(response => {
+				if (!response.ok) {
+					throw new Error("Could not load participants.json");
 				}
 
-				return fetch(csvUrl);
+				return response.json();
 			})
-			.then(res => res.arrayBuffer())
-			.then(buffer => {
-				const workbook = XLSX.read(buffer, { type: "array" });
-				const sheetName = workbook.SheetNames[0];
-				const sheet = workbook.Sheets[sheetName];
-
-				const rows = XLSX.utils.sheet_to_json(sheet, {
-					defval: ""
-				});
-
-				participants = rows.map((row, index) => ({
-					id: index + 1,
-					name: row["List of Authors"],
-					affiliation: row["Affiliation of Authors"]
-				}));
-
+			.then(data => {
+				participants = data;
 				renderPage(1);
 			})
 			.catch(error => {
-				console.error("Error loading Excel:", error);
+				console.error("Error loading participants:", error);
 			});
 
 		function renderPage(page) {
