@@ -46,8 +46,8 @@
   },
   {
     "id": 10,
-    "name": "Charyyar Ashyralyyev",
-    "affiliation": "Bahcesehir University, Istanbul, Turkiye"
+    "name": "Maral A. Ashyralyyeva",
+    "affiliation": "Magtymguly Turkmen State University, Ashgabat, Turkmenistan"
   },
   {
     "id": 11,
@@ -67,7 +67,7 @@
   {
     "id": 14,
     "name": "Madina Khapova",
-    "affiliation": "Federal Scientific Center \"Kabardino-Balkarian Scientific Center of the Russian Academy of Sciences\", Nalchik, Russia"
+    "affiliation": "Kabardino-Balkarian Scientific Center of the Russian Academy of Sciences, Nalchik, Russia"
   },
   {
     "id": 15,
@@ -86,33 +86,33 @@
   },
   {
     "id": 18,
-    "name": "Bakyt Kitapbaeva",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
-  },
-  {
-    "id": 19,
     "name": "Igor Miroshnichenko",
     "affiliation": "Tomsk State University, Russia"
   },
   {
-    "id": 20,
+    "id": 19,
     "name": "Nadezhda Bondareva",
     "affiliation": "Tomsk State University, Russia"
   },
   {
-    "id": 21,
+    "id": 20,
     "name": "Azamat Safiullin",
     "affiliation": "Tomsk State University, Russia"
   },
   {
-    "id": 22,
+    "id": 21,
     "name": "OZGUR YILDIRIM",
     "affiliation": "Yildiz Technical University, Istanbul, Turkiye"
   },
   {
-    "id": 23,
+    "id": 22,
     "name": "Alexander Rogovoy",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan and Miras university, Kazakhstan"
+  },
+  {
+    "id": 23,
+    "name": "Nurlan Imanbaev",
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan and Zhumabek Tashenev University, Kazakhstan"
   },
   {
     "id": 24,
@@ -121,133 +121,133 @@
   },
   {
     "id": 25,
-    "name": "Nurlan Imanbaev",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan and Zhumabek Tashenev University, Kazakhstan"
-  },
-  {
-    "id": 26,
     "name": "Arshyn Altybay",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
-    "id": 27,
+    "id": 26,
     "name": "Muvasharkhan Jenaliyev",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
-    "id": 28,
+    "id": 27,
     "name": "Durvudkhan Suragan",
     "affiliation": "Nazarbayev University, Kazakhstan"
   },
   {
-    "id": 29,
+    "id": 28,
     "name": "Arsen Pskhu",
     "affiliation": "Institute of Applied Mathematics and Automation KBSC RAS, Russia"
   },
   {
-    "id": 30,
+    "id": 29,
     "name": "Rashid Kerimbayev",
     "affiliation": "Al-Farabi Kazakh National University, Kazakhstan"
   },
   {
-    "id": 31,
+    "id": 30,
     "name": "Lazat Spankulova",
     "affiliation": "Al-Farabi Kazakh National University, Kazakhstan"
   },
   {
-    "id": 32,
+    "id": 31,
     "name": "Alexandre Soldatov",
     "affiliation": "National Research University \"Moscow Power Engineering Institute\", Russia"
   },
   {
-    "id": 33,
+    "id": 32,
     "name": "Akerke Merzetkhan",
     "affiliation": "Astana IT University, Kazakhstan"
   },
   {
-    "id": 34,
+    "id": 33,
     "name": "Myrzagali N. Ospanov",
     "affiliation": "L.N. Gumilyov Eurasian National University, Kazakhstan"
   },
   {
-    "id": 35,
+    "id": 34,
     "name": "Seyit Kerimkhulle",
     "affiliation": "L.N. Gumilyov Eurasian National University, Kazakhstan"
   },
   {
-    "id": 36,
+    "id": 35,
     "name": "Alibek Adalbek",
     "affiliation": "L.N. Gumilyov Eurasian National University, Kazakhstan"
   },
   {
-    "id": 37,
+    "id": 36,
     "name": "Makhpal Manarbek",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan"
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
+  },
+  {
+    "id": 37,
+    "name": "Nazerke Tleukhanova",
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
     "id": 38,
-    "name": "Nazerke Tleukhanova",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan"
-  },
-  {
-    "id": 39,
     "name": "Ryskul Oinarov",
     "affiliation": "L.N. Gumilyov Eurasian National University, Kazakhstan"
   },
   {
-    "id": 40,
+    "id": 39,
     "name": "Askar Baiarystan",
     "affiliation": "L.N. Gumilyov Eurasian National University, Kazakhstan"
   },
   {
-    "id": 41,
+    "id": 40,
     "name": "Vladimir Matveev",
     "affiliation": "Friedrich Schiller University Jena, Germany"
   },
   {
-    "id": 42,
+    "id": 41,
     "name": "Maktagul Aldy",
     "affiliation": "L.N. Gumilyov Eurasian National University, Kazakhstan"
   },
   {
-    "id": 43,
+    "id": 42,
     "name": "Alibek Yeskermessuly",
     "affiliation": "Altynsarin University, Kazakhstan"
   },
   {
-    "id": 44,
+    "id": 43,
     "name": "Dinmukhammed Akpan",
     "affiliation": "Friedrich Schiller University Jena, Germany and Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
-    "id": 45,
+    "id": 44,
     "name": "Ainur Temirkhanova",
     "affiliation": "L.N. Gumilyov Eurasian National University, Kazakhstan"
   },
   {
-    "id": 46,
+    "id": 45,
     "name": "Medet Jumadildayev",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
-    "id": 47,
+    "id": 46,
     "name": "Saule Abdykassymova",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
-    "id": 48,
+    "id": 47,
     "name": "Umbetkul Koilyshov",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
-    "id": 49,
+    "id": 48,
     "name": "Kulnyar Beisenbayeva",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
-    "id": 50,
+    "id": 49,
     "name": "Mahir Rasulov",
     "affiliation": "Institute of Oil and Gas of ANAS,  Baku, Azerbaijan"
+  },
+  {
+    "id": 50,
+    "name": "Charyyar Ashyralyyev",
+    "affiliation": "Bahcesehir University, Istanbul, Turkiye"
   },
   {
     "id": 51,
@@ -256,178 +256,178 @@
   },
   {
     "id": 52,
-    "name": "Maral A. Ashyralyyeva",
-    "affiliation": "Magtymguly Turkmen State University, Ashgabat, Turkmenistan"
-  },
-  {
-    "id": 53,
     "name": "Evren Osma",
     "affiliation": "Beykent University, Istanbul, Turkiye"
   },
   {
-    "id": 54,
+    "id": 53,
     "name": "Rysbiike Assanova",
     "affiliation": "M. Auezov South Kazakhstan Research University, Shymkent, Kazakhstan"
   },
   {
-    "id": 55,
+    "id": 54,
     "name": "Syrym Kasenov",
     "affiliation": "Al-Farabi Kazakh National University, Almaty, Kazakhstan"
   },
   {
-    "id": 56,
+    "id": 55,
     "name": "Aigerim Tleulesova",
     "affiliation": "M. Auezov South Kazakhstan Research University, Shymkent, Kazakhstan"
   },
   {
-    "id": 57,
+    "id": 56,
     "name": "Dauletbay Moldir",
     "affiliation": "M. Auezov South Kazakhstan Research University, Shymkent, Kazakhstan"
   },
   {
-    "id": 58,
+    "id": 57,
     "name": "Danagul Karatayeva",
     "affiliation": "L.N. Gumilyov Eurasian National University, Kazakhstan"
   },
   {
-    "id": 59,
+    "id": 58,
     "name": "Ainur Kabulova",
     "affiliation": "East Kazakhstan Technical University named after D.Serikbayev, Kazakhstan"
   },
   {
-    "id": 60,
+    "id": 59,
     "name": "Ekrem Savas",
     "affiliation": "Usak University, Turkiye"
   },
   {
-    "id": 61,
+    "id": 60,
     "name": "Rabia Savas",
     "affiliation": "Istanbul Medeniyet University, Turkiye"
   },
   {
-    "id": 62,
+    "id": 61,
     "name": "Myrzagali Bimenov",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan and Central Asian Innovation University, Shymkent, Kazakhstan"
   },
   {
-    "id": 63,
+    "id": 62,
     "name": "Murat Sultanov",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan"
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
+  },
+  {
+    "id": 63,
+    "name": "Bakytbek Sarsenov",
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
     "id": 64,
-    "name": "Bakytbek Sarsenov",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan"
+    "name": "Rauan Turebekov",
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
     "id": 65,
-    "name": "Rauan Turebekov",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan"
+    "name": "Yerkebulan Nurlanuly",
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
     "id": 66,
-    "name": "Yerkebulan Nurlanuly",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan"
-  },
-  {
-    "id": 67,
     "name": "Erlan Nursultanov",
     "affiliation": "Moscow State University branch, Astana, IMMM, Kazakhstan"
   },
   {
-    "id": 68,
+    "id": 67,
     "name": "Nurlan M. Temirbekov",
     "affiliation": "Al-Farabi Kazakh National University,  Almaty, Kazakhstan"
   },
   {
-    "id": 69,
+    "id": 68,
     "name": "A. Kerimakyn",
     "affiliation": "Al-Farabi Kazakh National University,  Almaty, Kazakhstan"
   },
   {
-    "id": 70,
+    "id": 69,
     "name": "Alua Muratova",
     "affiliation": "Al-Farabi Kazakh National University,  Almaty, Kazakhstan"
   },
   {
-    "id": 71,
+    "id": 70,
     "name": "Ravshan Ashurov",
     "affiliation": "V.I. Romanovskiy Institute of Mathematics, Uzbekistan Academy of Science,  Uzbekistan"
   },
   {
-    "id": 72,
+    "id": 71,
     "name": "Masahiro Yamamoto",
     "affiliation": "The University of Tokyo, Japan"
   },
   {
-    "id": 73,
+    "id": 72,
     "name": "Bahodir A. Shoimqulov",
     "affiliation": "National University of Uzbekistan, Uzbekistan"
   },
   {
-    "id": 74,
+    "id": 73,
     "name": "Tynysbek Kalmenov",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan"
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
+  },
+  {
+    "id": 74,
+    "name": "Ayan Kadirbek",
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
     "id": 75,
-    "name": "Ayan Kadirbek",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan"
-  },
-  {
-    "id": 76,
     "name": "Aigerim Kopezhanova",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
-    "id": 77,
+    "id": 76,
     "name": "Dostilek Dauitbek",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
-    "id": 78,
+    "id": 77,
     "name": "Tishabaev Djurabay",
     "affiliation": "National University of Uzbekistan, Tashkent, Uzbekistan"
   },
   {
-    "id": 79,
+    "id": 78,
     "name": "Saule Zhapparova",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Al-Farabi Kazakh National University, Kazakhstan"
   },
   {
-    "id": 80,
+    "id": 79,
     "name": "Turdybek Nurlybekuly",
     "affiliation": "Institute of Mathematics and Mathematical Modeling and  L.N. Gumilyov Eurasian National University, Kazakhstan"
   },
   {
-    "id": 81,
+    "id": 80,
     "name": "Rassul Kassymov",
     "affiliation": "Al-Farabi Kazakh National University, Almaty, Kazakhstan"
   },
   {
-    "id": 82,
+    "id": 81,
     "name": "Ramil Salimov",
-    "affiliation": "Bahcesehir University, Turkiye"
+    "affiliation": "Bahcesehir University, Istanbul, Turkiye"
   },
   {
-    "id": 83,
+    "id": 82,
     "name": "Matyokub Bakoev",
     "affiliation": "Tashkent branch of Moscow State Institute of International Relations, Uzbekistan"
   },
   {
-    "id": 84,
+    "id": 83,
     "name": "Ramazan Subasi",
     "affiliation": "Yildiz Technical University, Istanbul, Turkiye"
   },
   {
-    "id": 85,
+    "id": 84,
     "name": "Deniz Agirseven",
-    "affiliation": "Trakya University, Turkiye"
+    "affiliation": "Trakya University, Edirne, Turkiye"
+  },
+  {
+    "id": 85,
+    "name": "Yusuf Ensar Demirci",
+    "affiliation": "Trakya University, Edirne, Turkiye"
   },
   {
     "id": 86,
-    "name": "Yusuf Ensar Demirci",
-    "affiliation": "Trakya University, Turkiye"
+    "name": "Naila Aslam",
+    "affiliation": "COMSATS University Islamabad, Pakistan"
   },
   {
     "id": 87,
@@ -437,7 +437,7 @@
   {
     "id": 88,
     "name": "Mesut Negin",
-    "affiliation": "Bahcesehir University, Turkiye"
+    "affiliation": "Bahcesehir University, Istanbul, Turkiye"
   },
   {
     "id": 89,
@@ -446,53 +446,53 @@
   },
   {
     "id": 90,
+    "name": "Emriye Saglam",
+    "affiliation": "Trakya University, Edirne, Turkiye"
+  },
+  {
+    "id": 91,
     "name": "Benniche Omar",
     "affiliation": "Djlali Bounaama University, Algeria"
   },
   {
-    "id": 91,
+    "id": 92,
     "name": "Sankar Sagi",
     "affiliation": "University of Technology and Applied Sciences, Oman"
   },
   {
-    "id": 92,
+    "id": 93,
     "name": "Maheswara Rao Valluri",
     "affiliation": "Quinfosys Private Limited, India"
   },
   {
-    "id": 93,
+    "id": 94,
     "name": "Farrukh Mukhamedov",
     "affiliation": "UAE University, United Arab Emirates"
   },
   {
-    "id": 94,
-    "name": "Yasar Sozen",
-    "affiliation": "Hacettepe University, Turkiye"
-  },
-  {
     "id": 95,
-    "name": "Ezgi Soykan Urun",
-    "affiliation": "Bahcesehir University, Turkiye"
+    "name": "Yasar Sozen",
+    "affiliation": "Hacettepe University, Ankara, Turkiye"
   },
   {
     "id": 96,
-    "name": "Yagub A. Sharifov",
-    "affiliation": "Baku State University, Azerbaijan"
+    "name": "Ezgi Soykan Urun",
+    "affiliation": "Bahcesehir University, Istanbul, Turkiye"
   },
   {
     "id": 97,
     "name": "Faik Tunc Bozbura",
-    "affiliation": "Bahcesehir University, Turkiye"
+    "affiliation": "Bahcesehir University, Istanbul, Turkiye"
   },
   {
     "id": 98,
     "name": "Ahmet Arif Ergin",
-    "affiliation": "Bahcesehir University, Turkiye"
+    "affiliation": "Bahcesehir University, Istanbul, Turkiye"
   },
   {
     "id": 99,
     "name": "Sabri Versan",
-    "affiliation": "Bahcesehir University, Turkiye"
+    "affiliation": "Bahcesehir University, Istanbul, Turkiye"
   },
   {
     "id": 100,
@@ -571,7 +571,7 @@
   },
   {
     "id": 115,
-    "name": "Miratov S.K.",
+    "name": "S.K. Miratov",
     "affiliation": "Bokhtar State University named after N. Khusrav, Tajikistan"
   },
   {
@@ -612,7 +612,7 @@
   {
     "id": 123,
     "name": "Yagub Sharifov",
-    "affiliation": "Ministry of Science and Education Republic of Azerbaijan Institute of Mathematics, Azerbaijan, Baku State University, Azerbaijan"
+    "affiliation": "Ministry of Science and Education Republic of Azerbaijan Institute of Mathematics and Baku State University, Azerbaijan"
   },
   {
     "id": 124,
