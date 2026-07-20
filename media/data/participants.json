@@ -542,7 +542,7 @@
   {
     "id": 109,
     "name": "Farzona Mukhamedova",
-    "affiliation": "King’s College London, London, United Kingdom"
+    "affiliation": "King’s College London, United Kingdom"
   },
   {
     "id": 110,
@@ -676,27 +676,47 @@
   },
   {
     "id": 136,
-    "name": "Erlan Nursultanov",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan, and Eurasian National University of L.N. Gumiliyov, Kazakhstan"
-  },
-  {
-    "id": 137,
     "name": "Ayagoz Kankenova",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan, and Eurasian National University of L.N. Gumiliyov, Kazakhstan"
   },
   {
-    "id": 138,
+    "id": 137,
     "name": "Iskandar Jumakhon Halimzoda",
     "affiliation": "Tajik National University, Tajikistan"
   },
   {
-    "id": 139,
+    "id": 138,
     "name": "Mamadsho Ilolov",
-    "affiliation": "Center of Innovative Development of Science and Digital Technologies of National Academy of Sciences of Tajikistan"
+    "affiliation": "Center of Innovative Development of Science and Digital Technologies of National Academy of Sciences of Tajikistan, Tajikistan"
+  },
+  {
+    "id": 139,
+    "name": "Jamshed Rahmatov",
+    "affiliation": "Center of Innovative Development of Science and Digital Technologies of National Academy of Sciences of Tajikistan, Tajikistan"
   },
   {
     "id": 140,
-    "name": "Jamshed Rahmatov",
-    "affiliation": "Center of Innovative Development of Science and Digital Technologies of National Academy of Sciences of Tajikistan"
+    "name": "Kheireddine Belakroum",
+    "affiliation": "University Constantine 1, Constantine, Algeria"
+  },
+  {
+    "id": 141,
+    "name": "Bülent Nafi ÖRNEK",
+    "affiliation": "Amasya University, Amasya, Türkiye"
+  },
+  {
+    "id": 142,
+    "name": "Tahir Azeroğlu",
+    "affiliation": "İstanbul Arel University, İstanbul, Türkiye"
+  },
+  {
+    "id": 143,
+    "name": "Akylbek Kerimbekov",
+    "affiliation": "Kyrgyz-Russian Slavic University, Kyrgyzstan"
+  },
+  {
+    "id": 144,
+    "name": "Elmira Abdyldaeva",
+    "affiliation": "Kyrgyzstan-Türkiye Manas University, Kyrgyzstan"
   }
 ]
