@@ -711,12 +711,27 @@
   },
   {
     "id": 143,
+    "name": "Meiirkhan Borikhanov",
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
+  },
+  {
+    "id": 144,
+    "name": "Guldara Aubakirova",
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
+  },
+  {
+    "id": 145,
+    "name": "Mairbek Bichegkuev",
+    "affiliation": "North Ossetian State University, Vladikavkaz, Russia"
+  },
+  {
+    "id": 146,
     "name": "Akylbek Kerimbekov",
     "affiliation": "Kyrgyz-Russian Slavic University, Kyrgyzstan"
   },
   {
-    "id": 144,
+    "id": 147,
     "name": "Elmira Abdyldaeva",
-    "affiliation": "Kyrgyzstan-Türkiye Manas University, Kyrgyzstan"
+    "affiliation": "Kyrgyz-Turkish Manas University, Kyrgyzstan"
   }
 ]
