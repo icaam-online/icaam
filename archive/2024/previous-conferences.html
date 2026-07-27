@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Previous conferences | ICAAM</title>
+    <link href="site_mediatatic/img/favicon.ico" rel="shortcut icon" />
+    <link href="../../site_media/static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../site_media/static/css/mezzanine.css" rel="stylesheet" />
+    <script src="../../site_media/static/mezzanine/js/jquery-1.7.2.min.js"></script>
+    <script src="../../site_media/static/js/bootstrap.js"></script>
+    <script src="../../site_media/static/js/bootstrap-extras.js"></script>
+</head>
+
+<body id="body">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="clearfix" id="logo"><img class="img-responsive" id="banner-img" src="" /></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row"></div>
+
+        <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-collapse"
+                    data-toggle="collapse" type="button"><span class="sr-only">Toggle Navigation</span></button></div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li id="index.html"><a href="index.html">Home </a></li>
+                    <li id="covid-19-update.html"><a href="committees.html">Committees </a></li>
+                    <li id="call-for-papers.html"><a href="call-for-papers.html">Call for papers </a></li>
+                    <li id="important-dates.html"><a href="mportant-dates.html">Important dates </a></li>
+                    <li id="participants"><a href="participants.html">Participants </a></li>
+                    <li id="accommodation.html"><a href="accommodation.html">Accommodation and Registration Fees </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 left">
+                <div id="content">
+                    <h1>Previous conferences</h1>
+                    <p><strong><a href="http://icaam2012.gumushane.edu.tr">ICAAM 2012 - G&uuml;m&uuml;şhane University,
+                                Gumushane, Turkey</a></strong></p>
+                    <p><strong><a href="http://icaam.gumushane.edu.tr">ICAAM 2014 - M. Auezov South Kazakhstan State
+                                University, Shymkent, Kazakhstan</a></strong></p>
+                    <p><strong><a href="/archive/2016/index.html">ICAAM 2016 - Institute of Mathematics and Mathematical
+                                Modelling, Almaty, Kazakhstan</a></strong></p>
+                    <p><strong><a href="/archive/2018/index.html/">ICAAM 2018&nbsp;-&nbsp;Near East University, North
+                                Cyprus, Turkey</a></strong></p>
+                    <p><strong><a href="/archive/2020/index.html">ICAAM 2020 - Near East University, North Cyprus,
+                                Turkey</a></strong></p>
+                    <p><strong><a href="/archive/2022/index.html">ICAAM 2022 - Bahcesehir University, Antalya,
+                                Turkey</a></strong></p>
+                    <p><strong><a href="./archive/2024/index.html">ICAAM 2024 - Bahcesehir University, Antalya,
+                                Turkey</a></strong></p>
+                </div>
+            </div>
+
+            <div class="col-md-3 right">
+                <div class="panel panel-default tree">
+                    <ul class="nav nav-list navlist-menu-level-0">
+                        <li id="tree-menu-invited-speakers.html"><a href="invited-speakers.html">Invited speakers</a>
+                        </li>
+                        <li id="tree-menu-conference-program.html"><a href="conference-program.html">Conference
+                                Program</a></li>
+                        <li id="tree-menu-accommodation.html"><a href="accommodation.html">Accommodation</a></li>
+                        <li id="tree-menu-minisymposiums.html"><a href="minisymposiums.html">Minisymposiums</a></li>
+                        <li class="active active-branch" id="tree-menu-previous-conferences.html"><a
+                                href="previous-conferences.html">Previous conferences</a></li>
+                        <li id="tree-menu-transportation.html"><a href="transportation.html">Transportation</a></li>
+                        <li id="tree-menu-social-activities.html"><a href="social-activities.html">Social activities</a>
+                        </li>
+                        <li id="tree-menu-sponsors.html"><a href="sponsors.html">Sponsors</a></li>
+                        <li id="tree-menu-contact.html"><a href="contact.html">Contact</a></li>
+                        <li>-------------------------------------------------</li>
+                        <li>Registration Open</li>
+                        <li><u><a href="registration.html">REGISTER NOW</a></u></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        fetch("status.json")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("banner-img").src = data.banner;
+            })
+            .catch(error => {
+                console.error("Error loading status.json:", error);
+            });
+    </script>
+</body>
+
+</html>
