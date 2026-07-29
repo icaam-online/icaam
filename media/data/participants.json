@@ -793,5 +793,25 @@
     "id": 159,
     "name": "Ali Sirma",
     "affiliation": "Linnaeus University, Sweden"
+  },
+  {
+    "id": 160,
+    "name": "Nasridin Zhabborov",
+    "affiliation": "Tashkent State University of Economics, Tashkent, Uzbekistan"
+  },
+  {
+    "id": 161,
+    "name": "Behzod Husenov",
+    "affiliation": "Bukhara State University, Bukhara, Uzbekistan"
+  },
+  {
+    "id": 162,
+    "name": "Igor Dimitrov",
+    "affiliation": "Heidelberg University, Germany"
+  },
+  {
+    "id": 163,
+    "name": "Nihan Aliyev",
+    "affiliation": "Baku State University, Azerbaijan"
   }
 ]
