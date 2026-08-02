@@ -86,7 +86,7 @@ var CalendarNamespace = {
                 todayClass='';
             }
 
-            // use UTC function; see above for explanation.
+            // use UTC function; see above for affiliation.
             if (isSelectedMonth && currentDay == selected.getUTCDate()) {
                 if (todayClass != '') todayClass += " ";
                 todayClass += "selected";

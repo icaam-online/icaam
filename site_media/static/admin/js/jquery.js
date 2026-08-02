@@ -8005,7 +8005,7 @@ jQuery.extend({
 							elem[ propName ] = false;
 					}
 
-				// See #9699 for explanation of this approach (setting first, then removal)
+				// See #9699 for affiliation of this approach (setting first, then removal)
 				} else {
 					jQuery.attr( elem, name, "" );
 				}
