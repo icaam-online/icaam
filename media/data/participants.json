@@ -312,22 +312,22 @@
   {
     "id": 63,
     "name": "Murat Sultanov",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan and Khoja Akhmet Yassawi International Kazakh-Turkish University, Kazakhstan"
   },
   {
     "id": 64,
     "name": "Bakytbek Sarsenov",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan and Khoja Akhmet Yassawi International Kazakh-Turkish University, Kazakhstan"
   },
   {
     "id": 65,
-    "name": "Rauan Turebekov",
+    "name": "Merey Abdukadyrova",
     "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
   },
   {
     "id": 66,
     "name": "Yerkebulan Nurlanuly",
-    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan"
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Almaty, Kazakhstan and Khoja Akhmet Yassawi International Kazakh-Turkish University, Kazakhstan"
   },
   {
     "id": 67,
@@ -988,5 +988,65 @@
     "id": 198,
     "name": "Jamilya Jumabaeva",
     "affiliation": "L.N. Gumilyov Eurasian National University, Kazakhstan"
+  },
+  {
+    "id": 199,
+    "name": "Alisher Gafforzoda",
+    "affiliation": "Tajik National University, Tajikistan"
+  },
+  {
+    "id": 200,
+    "name": "Safarali Mavlonzoda",
+    "affiliation": "Tajik National University, Tajikistan"
+  },
+  {
+    "id": 201,
+    "name": "Telman Gasymov",
+    "affiliation": "Baku State University, Azerbaijan and Institute of Mathematics, Baku, Azerbaijan"
+  },
+  {
+    "id": 202,
+    "name": "Ilkin Feyzullayev",
+    "affiliation": "Institute of Mathematics, Baku, Azerbaijan"
+  },
+  {
+    "id": 203,
+    "name": "Shahlo Fayzullayeva",
+    "affiliation": "Tashkent State Transport University, Tashkent, Uzbekistan"
+  },
+  {
+    "id": 204,
+    "name": "Sabina Sadigova",
+    "affiliation": "Institute of Mathematics, Baku, Azerbaijan"
+  },
+  {
+    "id": 205,
+    "name": "Tarlan Garayev",
+    "affiliation": "Karabakh University, Khankendi, Azerbaijan"
+  },
+  {
+    "id": 206,
+    "name": "Vafa Alili",
+    "affiliation": "Baku Slavic University, Baku, Azerbaijan"
+  },
+  {
+    "id": 207,
+    "name": "Atirgul Kydyrbaikyzy",
+    "affiliation": "Institute of Mathematics and Mathematical Modeling, Kazakhstan and Al-Farabi Kazakh National University, Kazakhstan"
+  },
+  {
+    "id": 208,
+    "name": "Yeter Farhadova",
+    "affiliation": "Institute of Mathematics, Ministry of Science and Education of theRepublic of Azerbaijan, Azerbaijan and Khazar University, Azerbaijan"
+  },
+  {
+    "id": 209,
+    "name": "Sarvar Zarifzoda",
+    "affiliation": "Tajik National University, Tajikistan"
+  },
+  {
+    "id": 210,
+    "name": "Soliev Safarbek",
+    "affiliation": "Tajik National University, Tajikistan"
   }
 ]
