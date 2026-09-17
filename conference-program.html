@@ -15,6 +15,74 @@
 	<script src="site_media/static/js/bootstrap-extras.js"></script>
 	<link href="site_media/static/css/custom.css" rel="stylesheet" />
 	<script src="site_media/static/js/site-enhance.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+	<style>
+		#program-nav {
+			margin: 12px 0 22px;
+			line-height: 2;
+		}
+
+		#program-container table {
+			margin-bottom: 34px;
+		}
+
+		#program-container td,
+		#program-container th {
+			vertical-align: top;
+			white-space: pre-line;
+			/* keep line breaks that come from the Excel cells */
+		}
+
+		#program-container tr.prog-head th {
+			background: #f5f5f5;
+			white-space: pre-line;
+		}
+
+		#program-container tr.prog-section td {
+			background: #eef3f7;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		#program-container td.prog-span {
+			background: #fafafa;
+			font-style: italic;
+			text-align: center;
+		}
+
+		#content #program-container td.prog-time,
+		#content #program-container th.prog-time {
+			white-space: nowrap;
+			width: 1% !important;
+		}
+
+		/* Chair names must not be broken in the middle of a word.
+		   The !important widths override the generic rule in custom.css
+		   (#content table td { width: auto !important; word-break: break-word }). */
+		#content #program-container td.prog-chair,
+		#content #program-container th.prog-chair {
+			width: 16% !important;
+			min-width: 120px;
+		}
+
+		#content #program-container td,
+		#content #program-container th {
+			word-break: normal;
+			overflow-wrap: break-word;
+			hyphens: none;
+			text-align: left;
+		}
+
+		#content #program-container tr.prog-section td,
+		#content #program-container td.prog-span {
+			text-align: center;
+		}
+
+		#program-status {
+			padding: 10px 0;
+			color: #555;
+		}
+	</style>
 </head>
 
 <body data-gr-ext-installed="" data-new-gr-c-s-check-loaded="14.1085.0" id="body">
@@ -67,21 +135,15 @@
 									style="background-color:yellow;">(LAST UPDATED: September 15, 2026).
 								</span></strong></strong></p>
 
-					<p></p>
+					<p><strong><a id="program-download" href="media/data/program_ICAAM_2026.xlsx">DOWNLOAD THE PROGRAM
+								(EXCEL)</a></strong></p>
 
-					<!-- <p><strong><strong><span style="background-color:LightSalmon;">PLEASE CHECK FOR
-									CHANGES:&nbsp;</span></strong></strong><a
-							href="https://docs.google.com/spreadsheets/d/10aeLNLDDFj7OrBq0vLixO6K8Khx8AO4G/edit?usp=sharing&amp;ouid=103097341411045697263&amp;rtpof=true&amp;sd=true"><strong><strong><span
-										style="background-color:LightSalmon;">PROGRAM LINK</span></strong></strong></a> -->
+					<div id="program-nav"></div>
 
-					<p>TBA</p>
+					<div id="program-status">Loading the program&hellip;</div>
 
-					</p>
+					<div id="program-container"></div>
 
-					<!-- <iframe height="1400" width="700"
-						src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQiChov5hGOY0p8I12Zjvb1ggGPDAFtCPft9r0Obkh_9mNzQXkoR3csCYSapnO6_Q/pubhtml?widget=true&amp;headers=false"></iframe> -->
-
-					<p></p>
 				</div>
 			</div>
 
@@ -109,6 +171,182 @@
 	<grammarly-desktop-integration
 		data-grammarly-shadow-root="true"></grammarly-desktop-integration><grammarly-desktop-integration
 		data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+	<!-- ------------------------------------------------------------------
+	     Conference program
+	     The program is read straight from the Excel workbook at
+	     media/data/program_ICAAM_2026.xlsx. One worksheet = one day; the
+	     sheet layout (merged cells, chairs spanning several talks, breaks,
+	     line breaks inside cells) is reproduced as-is, so updating the
+	     program only means replacing that .xlsx file.
+	     ------------------------------------------------------------------ -->
+	<script>
+		(function () {
+			var PROGRAM_URL = "media/data/program_ICAAM_2026.xlsx";
+
+			var container = document.getElementById("program-container");
+			var statusBox = document.getElementById("program-status");
+			var navBox = document.getElementById("program-nav");
+
+			function esc(value) {
+				return String(value).replace(/[&<>"]/g, function (ch) {
+					return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch];
+				});
+			}
+
+			function cellText(ws, row, col) {
+				var cell = ws[XLSX.utils.encode_cell({ r: row, c: col })];
+
+				if (!cell) {
+					return "";
+				}
+
+				var value = (cell.w !== undefined && cell.w !== null) ? cell.w : cell.v;
+
+				if (value === undefined || value === null) {
+					return "";
+				}
+
+				return String(value).replace(/\s+$/, "").replace(/^[ \t]+/, "");
+			}
+
+			fetch(PROGRAM_URL + "?v=" + Date.now())
+				.then(function (response) {
+					if (!response.ok) {
+						throw new Error("Could not load " + PROGRAM_URL + " (HTTP " + response.status + ")");
+					}
+
+					return response.arrayBuffer();
+				})
+				.then(function (buffer) {
+					renderWorkbook(XLSX.read(new Uint8Array(buffer), { type: "array" }));
+				})
+				.catch(function (error) {
+					console.error("Error loading program:", error);
+					statusBox.innerHTML = 'The program could not be loaded. Please <a href="'
+						+ PROGRAM_URL + '">download it as an Excel file</a>.';
+				});
+
+			function renderWorkbook(wb) {
+				var links = [];
+				var html = "";
+
+				wb.SheetNames.forEach(function (name, index) {
+					var ws = wb.Sheets[name];
+
+					if (!ws || !ws["!ref"]) {
+						return;
+					}
+
+					var table = renderSheet(ws, "program-day-" + index);
+
+					if (!table) {
+						return;
+					}
+
+					links.push('<a href="#program-day-' + index + '">' + esc(name) + "</a>");
+					html += table;
+				});
+
+				if (!html) {
+					statusBox.textContent = "The program is not available yet.";
+					return;
+				}
+
+				statusBox.style.display = "none";
+				navBox.innerHTML = "<strong>Jump to:</strong> " + links.join(" &nbsp;&middot;&nbsp; ");
+				container.innerHTML = html;
+			}
+
+			function renderSheet(ws, anchorId) {
+				var range = XLSX.utils.decode_range(ws["!ref"]);
+				var merges = ws["!merges"] || [];
+
+				var spans = {};
+				var covered = {};
+
+				merges.forEach(function (m) {
+					for (var r = m.s.r; r <= m.e.r; r++) {
+						for (var c = m.s.c; c <= m.e.c; c++) {
+							if (r === m.s.r && c === m.s.c) {
+								spans[r + ":" + c] = {
+									rows: m.e.r - m.s.r + 1,
+									cols: m.e.c - m.s.c + 1
+								};
+							} else {
+								covered[r + ":" + c] = true;
+							}
+						}
+					}
+				});
+
+				var totalCols = range.e.c - range.s.c + 1;
+				var rowsHtml = "";
+
+				for (var r = range.s.r; r <= range.e.r; r++) {
+					var cells = [];
+					var rowHasText = false;
+
+					for (var c = range.s.c; c <= range.e.c; c++) {
+						if (covered[r + ":" + c]) {
+							continue;
+						}
+
+						var span = spans[r + ":" + c] || { rows: 1, cols: 1 };
+						var text = cellText(ws, r, c);
+
+						if (text) {
+							rowHasText = true;
+						}
+
+						cells.push({ col: c, text: text, rows: span.rows, cols: span.cols });
+					}
+
+					if (!rowHasText) {
+						continue;
+					}
+
+					var isHeader = /^time\b/i.test(cells[0].text);
+					var isSection = cells.length === 1 && cells[0].cols >= totalCols;
+					var tag = isHeader ? "th" : "td";
+					var cellsHtml = "";
+
+					cells.forEach(function (cell) {
+						var classes = [];
+
+						if (cell.col === range.s.c && !isSection) {
+							classes.push("prog-time");
+						}
+
+						if (cell.col === range.s.c + 1 && cell.cols === 1 && !isSection) {
+							classes.push("prog-chair");
+						}
+
+						if (cell.cols > 1 && !isSection) {
+							classes.push("prog-span");
+						}
+
+						cellsHtml += "<" + tag
+							+ (classes.length ? ' class="' + classes.join(" ") + '"' : "")
+							+ (cell.rows > 1 ? ' rowspan="' + cell.rows + '"' : "")
+							+ (cell.cols > 1 ? ' colspan="' + cell.cols + '"' : "")
+							+ ">" + esc(cell.text) + "</" + tag + ">";
+					});
+
+					var rowClass = isHeader ? "prog-head" : (isSection ? "prog-section" : "");
+
+					rowsHtml += "<tr" + (rowClass ? ' class="' + rowClass + '"' : "") + ">" + cellsHtml + "</tr>";
+				}
+
+				if (!rowsHtml) {
+					return "";
+				}
+
+				return '<table id="' + anchorId + '" class="table table-bordered table-striped"><tbody>'
+					+ rowsHtml + "</tbody></table>";
+			}
+		})();
+	</script>
 
 	<script>
 		fetch("status.json")
