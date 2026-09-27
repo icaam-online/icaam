@@ -10,7 +10,7 @@
    Also provides a lightbox for the Media page: clicking a photo inside a
    .media-item opens it enlarged over a transparent gray backdrop. The page
    shows the reduced photo; the link around it points to the original, which
-   is loaded in the lightbox (see scripts/optimize_gallery.py).
+   is shown in the lightbox (see scripts/optimize_gallery.py).
    ===================================================================== */
 (function () {
 	"use strict";
@@ -145,54 +145,35 @@
 		closeBtn.setAttribute("aria-label", "Close");
 		var img = el("img");
 		var caption = el("div", "media-caption");
-		var text = el("span");
-		var originalLink = el("a", "media-original", "Open original");
-		originalLink.target = "_blank";
-		caption.appendChild(text);
-		caption.appendChild(originalLink);
 		box.appendChild(closeBtn);
 		box.appendChild(img);
 		box.appendChild(caption);
 		body.appendChild(box);
 
-		var loader = null;
-
-		// Show the reduced photo at once, swap in the original when it has loaded
-		function open(reducedSrc, originalSrc, alt, captionHtml) {
-			img.src = reducedSrc;
+		function open(src, alt, text) {
+			img.src = src;
 			img.alt = alt || "";
-			text.innerHTML = captionHtml || "";
-			originalLink.href = originalSrc;
+			caption.innerHTML = text || "";
 			box.classList.add("media-open");
 			body.classList.add("media-lightbox-open");
-
-			loader = new Image();
-			var current = loader;
-			loader.onload = function () {
-				if (current === loader) img.src = originalSrc;
-			};
-			loader.src = originalSrc;
 		}
 		function close() {
-			loader = null;
 			box.classList.remove("media-open");
 			body.classList.remove("media-lightbox-open");
 		}
 
+		// The link around each photo points to the original; show that one
 		for (var i = 0; i < items.length; i++) {
 			items[i].addEventListener("click", function (e) {
 				e.preventDefault();
 				var thumb = this.querySelector("img");
 				var fig = this.closest ? this.closest(".media-item") : null;
 				var cap = fig ? fig.querySelector("figcaption") : null;
-				open(thumb ? thumb.src : this.href, this.href,
-					thumb ? thumb.alt : "", cap ? cap.innerHTML : "");
+				open(this.href, thumb ? thumb.alt : "", cap ? cap.innerHTML : "");
 			});
 		}
 
-		// Clicking anywhere (backdrop, photo or the close button) closes it,
-		// except the "Open original" link
-		originalLink.addEventListener("click", function (e) { e.stopPropagation(); });
+		// Clicking anywhere (backdrop, photo or the close button) closes it
 		box.addEventListener("click", close);
 		document.addEventListener("keydown", function (e) {
 			if (e.key === "Escape" || e.keyCode === 27) close();

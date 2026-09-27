@@ -329,13 +329,6 @@ html, body {
 	font-size: 15px;
 	text-align: center;
 }
-.media-lightbox .media-original {
-	display: inline-block;
-	margin-left: 12px;
-	color: #9fd8ec;
-	font-size: 13px;
-	text-decoration: underline;
-}
 .media-lightbox .media-close {
 	position: absolute;
 	top: 10px;
