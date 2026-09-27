@@ -257,7 +257,8 @@ html, body {
    4. Media gallery + lightbox
    Gallery items (.media-item) live in media.html. Clicking a photo opens
    it enlarged over a transparent gray backdrop; the lightbox markup is
-   injected by site-enhance.js.
+   injected by site-enhance.js. Reduced photos are in media/gallery/,
+   originals in media/gallery/original/ (see scripts/optimize_gallery.py).
    --------------------------------------------------------------------- */
 
 .media-gallery {
@@ -327,6 +328,13 @@ html, body {
 	color: #fff;
 	font-size: 15px;
 	text-align: center;
+}
+.media-lightbox .media-original {
+	display: inline-block;
+	margin-left: 12px;
+	color: #9fd8ec;
+	font-size: 13px;
+	text-decoration: underline;
 }
 .media-lightbox .media-close {
 	position: absolute;

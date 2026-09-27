@@ -8,7 +8,9 @@
    Each page keeps its own navigation markup; this script only mirrors it.
 
    Also provides a lightbox for the Media page: clicking a photo inside a
-   .media-item opens it enlarged over a transparent gray backdrop.
+   .media-item opens it enlarged over a transparent gray backdrop. The page
+   shows the reduced photo; the link around it points to the original, which
+   is loaded in the lightbox (see scripts/optimize_gallery.py).
    ===================================================================== */
 (function () {
 	"use strict";
@@ -134,7 +136,7 @@
 	// --- Media lightbox (only on pages with .media-item photos) ---
 	ready(function () {
 		var body = document.body;
-		var items = document.querySelectorAll(".media-item img");
+		var items = document.querySelectorAll(".media-item a");
 		if (!body || !items.length) return;
 
 		var box = el("div", "media-lightbox");
@@ -143,32 +145,54 @@
 		closeBtn.setAttribute("aria-label", "Close");
 		var img = el("img");
 		var caption = el("div", "media-caption");
+		var text = el("span");
+		var originalLink = el("a", "media-original", "Open original");
+		originalLink.target = "_blank";
+		caption.appendChild(text);
+		caption.appendChild(originalLink);
 		box.appendChild(closeBtn);
 		box.appendChild(img);
 		box.appendChild(caption);
 		body.appendChild(box);
 
-		function open(src, alt, text) {
-			img.src = src;
+		var loader = null;
+
+		// Show the reduced photo at once, swap in the original when it has loaded
+		function open(reducedSrc, originalSrc, alt, captionHtml) {
+			img.src = reducedSrc;
 			img.alt = alt || "";
-			caption.innerHTML = text || "";
+			text.innerHTML = captionHtml || "";
+			originalLink.href = originalSrc;
 			box.classList.add("media-open");
 			body.classList.add("media-lightbox-open");
+
+			loader = new Image();
+			var current = loader;
+			loader.onload = function () {
+				if (current === loader) img.src = originalSrc;
+			};
+			loader.src = originalSrc;
 		}
 		function close() {
+			loader = null;
 			box.classList.remove("media-open");
 			body.classList.remove("media-lightbox-open");
 		}
 
 		for (var i = 0; i < items.length; i++) {
-			items[i].addEventListener("click", function () {
+			items[i].addEventListener("click", function (e) {
+				e.preventDefault();
+				var thumb = this.querySelector("img");
 				var fig = this.closest ? this.closest(".media-item") : null;
 				var cap = fig ? fig.querySelector("figcaption") : null;
-				open(this.src, this.alt, cap ? cap.innerHTML : "");
+				open(thumb ? thumb.src : this.href, this.href,
+					thumb ? thumb.alt : "", cap ? cap.innerHTML : "");
 			});
 		}
 
-		// Clicking anywhere (backdrop, photo or the close button) closes it
+		// Clicking anywhere (backdrop, photo or the close button) closes it,
+		// except the "Open original" link
+		originalLink.addEventListener("click", function (e) { e.stopPropagation(); });
 		box.addEventListener("click", close);
 		document.addEventListener("keydown", function (e) {
 			if (e.key === "Escape" || e.keyCode === 27) close();
