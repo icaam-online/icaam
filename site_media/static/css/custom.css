@@ -252,3 +252,95 @@ html, body {
 		overflow: hidden;
 	}
 }
+
+/* ---------------------------------------------------------------------
+   4. Media gallery + lightbox
+   Gallery items (.media-item) live in media.html. Clicking a photo opens
+   it enlarged over a transparent gray backdrop; the lightbox markup is
+   injected by site-enhance.js.
+   --------------------------------------------------------------------- */
+
+.media-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	margin: 15px 0;
+}
+
+.media-item {
+	flex: 1 1 280px;
+	max-width: 100%;
+	margin: 0;
+	background: #f7f6ee;
+	border: 1px solid #cfcaad;
+	border-radius: 4px;
+	overflow: hidden;
+}
+.media-item img {
+	display: block;
+	width: 100%;
+	height: auto;
+	cursor: zoom-in;
+	transition: opacity 0.2s ease;
+}
+.media-item img:hover {
+	opacity: 0.85;
+}
+.media-item figcaption {
+	padding: 8px 10px;
+	font-size: 13px;
+	color: #333;
+}
+
+.media-lightbox {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	inset: 0;
+	z-index: 1060;
+	padding: 20px;
+	background: rgba(60, 60, 60, 0.85);
+	cursor: zoom-out;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.media-lightbox.media-open {
+	opacity: 1;
+	visibility: visible;
+}
+.media-lightbox img {
+	max-width: 100%;
+	max-height: calc(100vh - 100px);
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+	transform: scale(0.95);
+	transition: transform 0.25s ease;
+}
+.media-lightbox.media-open img {
+	transform: scale(1);
+}
+.media-lightbox .media-caption {
+	max-width: 900px;
+	margin-top: 12px;
+	color: #fff;
+	font-size: 15px;
+	text-align: center;
+}
+.media-lightbox .media-close {
+	position: absolute;
+	top: 10px;
+	right: 16px;
+	background: none;
+	border: 0;
+	color: #fff;
+	font-size: 36px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+/* Prevent body scroll while the lightbox is open */
+body.media-lightbox-open {
+	overflow: hidden;
+}

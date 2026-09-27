@@ -6,6 +6,9 @@
    Both open as slide-in drawers. Nothing here runs any differently on
    desktop -- the injected elements are hidden by CSS above 767px.
    Each page keeps its own navigation markup; this script only mirrors it.
+
+   Also provides a lightbox for the Media page: clicking a photo inside a
+   .media-item opens it enlarged over a transparent gray backdrop.
    ===================================================================== */
 (function () {
 	"use strict";
@@ -126,5 +129,49 @@
 		body.appendChild(overlay);
 		body.appendChild(leftDrawer);
 		body.appendChild(rightDrawer);
+	});
+
+	// --- Media lightbox (only on pages with .media-item photos) ---
+	ready(function () {
+		var body = document.body;
+		var items = document.querySelectorAll(".media-item img");
+		if (!body || !items.length) return;
+
+		var box = el("div", "media-lightbox");
+		var closeBtn = el("button", "media-close", "&times;");
+		closeBtn.type = "button";
+		closeBtn.setAttribute("aria-label", "Close");
+		var img = el("img");
+		var caption = el("div", "media-caption");
+		box.appendChild(closeBtn);
+		box.appendChild(img);
+		box.appendChild(caption);
+		body.appendChild(box);
+
+		function open(src, alt, text) {
+			img.src = src;
+			img.alt = alt || "";
+			caption.innerHTML = text || "";
+			box.classList.add("media-open");
+			body.classList.add("media-lightbox-open");
+		}
+		function close() {
+			box.classList.remove("media-open");
+			body.classList.remove("media-lightbox-open");
+		}
+
+		for (var i = 0; i < items.length; i++) {
+			items[i].addEventListener("click", function () {
+				var fig = this.closest ? this.closest(".media-item") : null;
+				var cap = fig ? fig.querySelector("figcaption") : null;
+				open(this.src, this.alt, cap ? cap.innerHTML : "");
+			});
+		}
+
+		// Clicking anywhere (backdrop, photo or the close button) closes it
+		box.addEventListener("click", close);
+		document.addEventListener("keydown", function (e) {
+			if (e.key === "Escape" || e.keyCode === 27) close();
+		});
 	});
 })();
